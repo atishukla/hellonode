@@ -1,6 +1,15 @@
 # Hello Node
-This is a very basic Hello World application written with Node.
+TODO:
 
-It includes a `Dockerfile` for building a Docker image with the application, and a `Jenkinsfile` that defines a build pipeline for it.
+Jenkins fail with 
 
-https://getintodevops.com
+docker: error while loading shared libraries: libltdl.so.7: cannot open shared object file: No such file or directory
+[Pipeline] }
+
+Investigate
+
+Docker ran with 
+
+docker run -p 8080:8080 -v /var/run/docker/sock:/var/run/docker.sock -v /var/jenkins_home:/var/jenkins_home -v$(which docker):/usr/bin/docker --name myjenkins jenkins/jenkins:lts
+
+Check after removing docker.sock the error as client will then be mapped
