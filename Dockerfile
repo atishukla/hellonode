@@ -1,9 +1,8 @@
 # use a node base image
 FROM node:7-onbuild
-USER root
 # set maintainer
 LABEL maintainer "atishayshukla@gmail.com"
-
+RUN usermod -aG docker $(USER)
 # set a health check
 HEALTHCHECK --interval=5s \
             --timeout=5s \
