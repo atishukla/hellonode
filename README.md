@@ -10,6 +10,6 @@ Investigate
 
 Docker ran with 
 
-docker run -p 8080:8080 -v /var/run/docker/sock:/var/run/docker.sock -v /var/jenkins_home:/var/jenkins_home -v$(which docker):/usr/bin/docker --name myjenkins jenkins/jenkins:lts
+docker run -p 8080:8080 -p 50000:50000 -v /var/run/docker.sock:/var/run/docker.sock -v /var/jenkins_home:/var/jenkins_home -v$(which docker):/usr/bin/docker --name myjenkins newjenkinsimage
 
 Check after removing docker.sock the error as client will then be mapped
